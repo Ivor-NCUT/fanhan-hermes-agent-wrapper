@@ -1,4 +1,6 @@
 FROM docker.io/nousresearch/hermes-agent:v2026.6.5
 
+COPY --chmod=0755 entrypoint.sh /usr/local/bin/hermes-wrapper-entrypoint
+
 ENTRYPOINT []
-CMD ["/opt/hermes/bin/hermes", "gateway", "run", "--no-supervise"]
+CMD ["/usr/local/bin/hermes-wrapper-entrypoint"]
